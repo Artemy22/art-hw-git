@@ -1,0 +1,3 @@
+file B
+Line from feature branch
+file B
