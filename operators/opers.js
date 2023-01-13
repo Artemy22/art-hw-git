@@ -1,10 +1,10 @@
 
-function randomizer(iks) {
-    return Math.round(Math.random() * iks)
+function randomizer(multiplier) {
+    return Math.round(Math.random() * multiplier)
 }
 
-//1
 
+//1
 /**
  * Ви прийшли в Макдональдз з трьома друзями.
     Всі вони хочуть зʼїсти гамбургер. 
@@ -25,7 +25,6 @@ if (burgers_1 > 3 && fries_1 > 0) {
 
 
 //2
-
 /**
  * Напишіть умовну конструкцію if, що перевіряє, 
  * чи знаходиться значення ціни товару між 1000 та 1900 включно.
@@ -40,7 +39,6 @@ let goodPrice_2 = randomizer(5) * 900;
 
 
 //3
-
 /**
  * Напишіть конструкцію if, що перевіряє, 
  * чи значення ціни товару не знаходиться між 1000 та 1900 включно.
@@ -76,3 +74,35 @@ if (season_number_4 == 1) {
     console.log(`The autumn time. The season id: ${season_number_4}`)
 } else console.log(`Wrong season identifier: ${season_number_4}`)
 
+
+
+//5
+/**
+ * Задано 3 числа (a, b, c), які не рівні між собою.
+ * Визначити середнє мід цими трьома числами
+ * (не середнє арифметичне значення, а яке з трьох заданих чисел среднє за значенням)
+ * використовуючи оператор if-else.
+ * Використати вкладені оператори if
+ * Результат виводити в консоль.
+ */
+//              B < C < A
+let a_5 = randomizer(1000)
+console.log(`A equals: ${a_5}`)
+
+let b_5 = randomizer(1000)
+console.log(`B equals: ${b_5}`)
+
+let c_5 = randomizer(1000)
+console.log(`C equals: ${c_5}`)
+
+
+if ((b_5 < c_5 && b_5 > a_5) || (b_5 < a_5 && b_5 > c_5)) {
+    console.log(`B is the middle value and equals: ${b_5}`)
+} else if ((a_5 < c_5 && a_5 > b_5) || (a_5 < b_5 && a_5 > c_5)) {
+    console.log(`A is the middle value and equals: ${a_5}`)
+} else if ((c_5 < a_5 && c_5 > b_5) || (c_5 < b_5 && c_5 > a_5)) {
+    console.log(`C is the middle value and equals: ${c_5}`)
+} else console.log('Randomizer returned equal values (probably)')
+
+
+//6
