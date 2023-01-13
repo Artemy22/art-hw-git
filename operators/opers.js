@@ -186,3 +186,93 @@ let string_8 = 'Використовуючи властивості рядків
 const string_8_upd = string_8.replace(/[иоуюаіяiеuaeo]/gi, '')
 console.log(string_8_upd)
 
+
+//9
+/**
+ * Використовуючи оператор if реалізувати логіку переводу метрів в кілометри,
+ * так щоб в консоль виводився результат обчислень з правильним закнченням.
+ * Наприклад: 1000 метрів це 1 кілометр;  32 метри це 0,02 кілометра; 3 кілометри і т.д.
+ * Відмінювання для "метр" (аналогічні закінчення будуть і для слова "кілометр")
+ * 1 м 1 к      метрив
+ * 
+ * 2 к_и 2к     метрив
+ * 3 к_и 3к     метрив
+ * 4 к_и 4к     метрив
+ * 
+ * 5 к_ив 5к    метрив
+ * 6 к_ив 
+ * 7 к_ив
+ * 8 к_ив
+ * 9 к_ив
+ * 10 к_ив
+ * 
+ * 1 м      к_а
+ * 
+ * 2 м_и    к_а
+ * 3 м_и    к_а
+ * 4 м_и    к_а
+ * 
+ * 5 м_ив   к_ив
+ * 6 м_ив   к_ив
+ * 7 м_ив   к_ив
+ * 8 м_ив   к_ив
+ * 9 м_ив   к_ив
+ * 10 м_ив  к_ив
+ */
+
+//let m_to_km_9 = [13000, 10000, 9000, 8000.07, 7009.03, 6008.1, 5007, 4006, 3005, 2004, 1003, 102, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+let m_to_km_9 = [randomizer(400), randomizer(400) * 2, randomizer(400) * 3, randomizer(400) * 4, randomizer(400) * 5, randomizer(400) * 10, randomizer(400) * 100, randomizer(400) * 1000]
+
+function getLast2digits(number) {
+    if (Number(String(number).slice(-2)) > 4 && Number(String(number).slice(-2)) < 21) {
+        return Number(String(number).slice(-2))
+    } else return Number(String(number).slice(-1))
+}
+
+for (let i = 0; i < m_to_km_9.length; i++) {
+    let theCurrentKm = m_to_km_9[i] / 1000
+
+    if (getLast2digits(m_to_km_9[i]) == 0) {
+        if (getLast2digits(theCurrentKm) == 0) {
+            console.table(`${m_to_km_9[i]} метрiв це ${theCurrentKm} кiлометрiв`)
+        } else if (getLast2digits(theCurrentKm) == 1) {
+            console.table(`${m_to_km_9[i]} метрiв це ${theCurrentKm} кiлометр`)
+        } else if (getLast2digits(theCurrentKm) > 1 && getLast2digits(theCurrentKm) < 5) {
+            console.table(`${m_to_km_9[i]} метрiв це ${theCurrentKm} кiлометра`)
+        } else if (getLast2digits(theCurrentKm) > 4 && getLast2digits(theCurrentKm) < 21) {
+            console.table(`${m_to_km_9[i]} метрiв це ${theCurrentKm} кiлометрiв`)
+        }
+    } else if (getLast2digits(m_to_km_9[i]) == 1) {
+        if (getLast2digits(theCurrentKm) == 0) {
+            console.table(`${m_to_km_9[i]} метр це ${theCurrentKm} кiлометрiв`)
+        } else if (getLast2digits(theCurrentKm) == 1) {
+            console.table(`${m_to_km_9[i]} метр це ${theCurrentKm} кiлометр`)
+        } else if (getLast2digits(theCurrentKm) > 1 && getLast2digits(theCurrentKm) < 5) {
+            console.table(`${m_to_km_9[i]} метр це ${theCurrentKm} кiлометра`)
+        } else if (getLast2digits(theCurrentKm) > 4 && getLast2digits(theCurrentKm) < 21) {
+            console.table(`${m_to_km_9[i]} метр це ${theCurrentKm} кiлометрiв`)
+        }
+    } else if ((getLast2digits(m_to_km_9[i]) > 1 && getLast2digits(m_to_km_9[i])) < 5) {
+        if (getLast2digits(theCurrentKm) == 0) {
+            console.table(`${m_to_km_9[i]} метри це ${theCurrentKm} кiлометрiв`)
+        } else if (getLast2digits(theCurrentKm) == 1) {
+            console.table(`${m_to_km_9[i]} метри це ${theCurrentKm} кiлометр`)
+        } else if (getLast2digits(theCurrentKm) > 1 && getLast2digits(theCurrentKm) < 5) {
+            console.table(`${m_to_km_9[i]} метри це ${theCurrentKm} кiлометра`)
+        } else if (getLast2digits(theCurrentKm) > 4 && getLast2digits(theCurrentKm) < 21) {
+            console.table(`${m_to_km_9[i]} метри це ${theCurrentKm} кiлометрiв`)
+        }
+    } else if (getLast2digits(m_to_km_9[i]) > 4 && getLast2digits(m_to_km_9[i]) < 21) {
+        if (getLast2digits(theCurrentKm) == 0) {
+            console.table(`${m_to_km_9[i]} метрiв це ${theCurrentKm} кiлометрiв`)
+        } else if (getLast2digits(theCurrentKm) == 1) {
+            console.table(`${m_to_km_9[i]} метрiв це ${theCurrentKm} кiлометр`)
+        } else if (getLast2digits(theCurrentKm) > 1 && getLast2digits(theCurrentKm) < 5) {
+            console.table(`${m_to_km_9[i]} метрiв це ${theCurrentKm} кiлометра`)
+        } else if (getLast2digits(theCurrentKm) > 4 && getLast2digits(theCurrentKm) < 21) {
+            console.table(`${m_to_km_9[i]} метрiв це ${theCurrentKm} кiлометрiв`)
+        }
+    } else console.log('Not implemented yet')
+}
+
