@@ -1,6 +1,6 @@
 
-function randomizer() {
-    return Math.round(Math.random() * 5)
+function randomizer(iks) {
+    return Math.round(Math.random() * iks)
 }
 
 //1
@@ -16,8 +16,8 @@ function randomizer() {
     (Змінні типу інтеджер містять кількість продуктів в наявності у вигляді вхідних даних)
  */
 
-let burgers_1 = randomizer()
-let fries_1 = randomizer()
+let burgers_1 = randomizer(5)
+let fries_1 = randomizer(5)
 
 if (burgers_1 > 3 && fries_1 > 0) {
     console.log('We are happy and full of junk foods')
@@ -32,7 +32,7 @@ if (burgers_1 > 3 && fries_1 > 0) {
  * Результат виводити в консоль.
  */
 
-let goodPrice_2 = randomizer() * 900;
+let goodPrice_2 = randomizer(5) * 900;
 //console.log(goodPrice_2)
 (goodPrice_2 > 999 && goodPrice_2 < 1901)
     ? console.log(`The price is good and equals: ${goodPrice_2}`)
@@ -48,7 +48,7 @@ let goodPrice_2 = randomizer() * 900;
  * Результат виводити в консоль.
  */
 
-let goodPrice_3 = randomizer() * 900;
+let goodPrice_3 = randomizer(5) * 900;
 
 (goodPrice_3 < 1000 || goodPrice_3 > 1900)
     ? console.log(`The price is good and equals: ${goodPrice_3}`)
@@ -57,4 +57,22 @@ let goodPrice_3 = randomizer() * 900;
 !(goodPrice_3 > 999 && goodPrice_3 < 1901)
     ? console.log(`The price is good and equals: ${goodPrice_3}`)
     : console.log(`The price is wrong and equals: ${goodPrice_3}`)
+
+
+//4
+/**
+ * За номером пори року вивести назву цієї пори року використовуючи оператор if-else-if
+ * Результат виводити в консоль.
+ */
+
+let season_number_4 = randomizer(5)
+if (season_number_4 == 1) {
+    console.log(`The winter time. The season id: ${season_number_4}`)
+} else if (season_number_4 == 2) {
+    console.log(`The spring time. The season id: ${season_number_4}`)
+} else if (season_number_4 == 3) {
+    console.log(`The summer time. The season id: ${season_number_4}`)
+} else if (season_number_4 == 4) {
+    console.log(`The autumn time. The season id: ${season_number_4}`)
+} else console.log(`Wrong season identifier: ${season_number_4}`)
 
