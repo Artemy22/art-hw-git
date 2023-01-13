@@ -113,7 +113,7 @@ if ((b_5 < c_5 && b_5 > a_5) || (b_5 < a_5 && b_5 > c_5)) {
 
 let day_number_6 = randomizer(9)
 
-const DAYZZ_6 = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",  "Friday",  "Saturday"]
+const DAYZZ_6 = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
 switch (day_number_6) {
     case 1:
@@ -123,22 +123,56 @@ switch (day_number_6) {
         console.log(`The day is ${DAYZZ_6[1]}. The day id: ${day_number_6}`)
         break;
     case 3:
-        console.log(`The day is ${DAYZZ_6[2]}. The day id: ${day_number_6}`)        
+        console.log(`The day is ${DAYZZ_6[2]}. The day id: ${day_number_6}`)
         break;
     case 4:
-        console.log(`The day is ${DAYZZ_6[3]}. The day id: ${day_number_6}`)        
+        console.log(`The day is ${DAYZZ_6[3]}. The day id: ${day_number_6}`)
         break;
     case 5:
-        console.log(`The day is ${DAYZZ_6[4]}. The day id: ${day_number_6}`)        
+        console.log(`The day is ${DAYZZ_6[4]}. The day id: ${day_number_6}`)
         break;
     case 6:
-        console.log(`The day is ${DAYZZ_6[5]}. The day id: ${day_number_6}`)        
+        console.log(`The day is ${DAYZZ_6[5]}. The day id: ${day_number_6}`)
         break;
     case 7:
-        console.log(`The day is ${DAYZZ_6[6]}. The day id: ${day_number_6}`)        
+        console.log(`The day is ${DAYZZ_6[6]}. The day id: ${day_number_6}`)
         break;
 
     default:
         console.log(`Randomizer returned the wrong day id: ${day_number_6}`)
+        break;
+}
+
+
+//7
+/**
+ * За допомогою switch реалізуйте обчислення виразу, 
+ * передаючи у switch, як параметр, символ математичної операції.
+ * Математичні операції для обчислення: "+", "-", "*", "/".
+ * Результат виводити в консоль.
+ */
+let a_7 = randomizer(777) + 1
+console.log("A: " + a_7)
+let b_7 = randomizer(777) + 1
+console.log("B: " + b_7)
+
+let math_arr_7 = ["+", "-", "*", "/"]
+let current_math_val_7 = math_arr_7[randomizer(4)]
+
+switch (current_math_val_7) {
+    case "+":
+        console.log(`The current math symbol is: >>> ${current_math_val_7} <<<. The result of calculation is: ${a_7 + b_7}`)
+        break;
+    case "-":
+        console.log(`The current math symbol is: >>> ${current_math_val_7} <<<. The result of calculation is: ${a_7 - b_7}`)
+        break;
+    case "*":
+        console.log(`The current math symbol is: >>> ${current_math_val_7} <<<. The result of calculation is: ${a_7 * b_7}`)
+        break;
+    case "/":
+        console.log(`The current math symbol is: >>> ${current_math_val_7} <<<. The result of calculation is: ${a_7 / b_7}`)
+        break;
+    default:
+        console.log(`math_arr_7 array doesn't have this value : ${current_math_val_7}`)
         break;
 }
