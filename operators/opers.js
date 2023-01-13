@@ -176,3 +176,13 @@ switch (current_math_val_7) {
         console.log(`math_arr_7 array doesn't have this value : ${current_math_val_7}`)
         break;
 }
+
+//8
+/**
+ * Використовуючи властивості рядків (тип string), та регулярний вираз (regular expression) видалити голосні букви зі слова.
+ */
+
+let string_8 = 'Використовуючи властивості рядків (тип string), та регулярний вираз (regular expression) видалити голосні букви зі слова.'
+const string_8_upd = string_8.replace(/[иоуюаіяiеuaeo]/gi, '')
+console.log(string_8_upd)
+
