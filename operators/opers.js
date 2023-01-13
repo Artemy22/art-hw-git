@@ -15,7 +15,6 @@ function randomizer(multiplier) {
     то виводити в консоль текст "Ми йдемо в інше кафе"
     (Змінні типу інтеджер містять кількість продуктів в наявності у вигляді вхідних даних)
  */
-
 let burgers_1 = randomizer(5)
 let fries_1 = randomizer(5)
 
@@ -106,3 +105,40 @@ if ((b_5 < c_5 && b_5 > a_5) || (b_5 < a_5 && b_5 > c_5)) {
 
 
 //6
+/**
+ * Задано номер дня тижня.
+ * За заданим номером вивести назву дня тижня використовуючи switch.
+ * Результат виводити в консоль
+ */
+
+let day_number_6 = randomizer(9)
+
+const DAYZZ_6 = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",  "Friday",  "Saturday"]
+
+switch (day_number_6) {
+    case 1:
+        console.log(`The day is ${DAYZZ_6[0]}. The day id: ${day_number_6}`)
+        break;
+    case 2:
+        console.log(`The day is ${DAYZZ_6[1]}. The day id: ${day_number_6}`)
+        break;
+    case 3:
+        console.log(`The day is ${DAYZZ_6[2]}. The day id: ${day_number_6}`)        
+        break;
+    case 4:
+        console.log(`The day is ${DAYZZ_6[3]}. The day id: ${day_number_6}`)        
+        break;
+    case 5:
+        console.log(`The day is ${DAYZZ_6[4]}. The day id: ${day_number_6}`)        
+        break;
+    case 6:
+        console.log(`The day is ${DAYZZ_6[5]}. The day id: ${day_number_6}`)        
+        break;
+    case 7:
+        console.log(`The day is ${DAYZZ_6[6]}. The day id: ${day_number_6}`)        
+        break;
+
+    default:
+        console.log(`Randomizer returned the wrong day id: ${day_number_6}`)
+        break;
+}
