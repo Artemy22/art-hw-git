@@ -28,8 +28,8 @@ const elements = {
   colors: {
     bottomStart: 'rgb(233, 29, 99)',
     topStart: 'rgb(96, 175, 32)',
-    bottomRight: ' rgb(255, 159, 5)',
-    topRight: '  rgb(176, 0, 32)',
+    bottomRight: 'rgb(255, 159, 5)',
+    topRight: 'rgb(176, 0, 32)',
   },
   toasterConfigurationTitle: '[name="title"]',
   toasterConfigurationContent: '[ng-reflect-name="content"]',
@@ -38,29 +38,6 @@ const elements = {
   burgerButton: '[data-name="menu"]',
   showToastButton: 'nb-card-footer .status-basic'
 }
-
-/*
-cy.get('cdk-overlay-container')
-.eq(1)
-.should('have.css', 'background-color')
-.and('eq', 'rgb(98, 0, 238)')
-
-cy.get('cdk-overlay-container')
-.eq(2)
-.should('have.css', 'background-color')
-.and('eq', 'rgb(96, 175, 32)')
-
-cy.get('cdk-overlay-container')
-.eq(3)
-.should('have.css', 'background-color')
-.and('eq', 'rgb(255, 159, 5)')
-
-cy.get('cdk-overlay-container')
-.eq(4)
-.should('have.css', 'background-color')
-.and('eq', 'rgb(176, 0, 32)')
-*/
-
 
 const testData = {
   position: 'top-right',
@@ -99,48 +76,47 @@ testDataArr.forEach(({ testData, expectedResult }) => {
         cy.get(elements.toasterConfigurationTypeDropdown.main).click()
         cy.get(elements.toasterConfigurationTypeDropdown.primary).click()
         cy.get(elements.showToastButton).click()
-        cy.get('.ng-tns-c209-54.status-primary')          
-        .should('have.css', 'background-color')
+        cy.get('.ng-tns-c209-54.status-primary')
+          .should('have.css', 'background-color')
           .and('eq', expectedResult)
+        cy.get('.ng-tns-c209-54.status-primary').click('bottomLeft', { force: true })
+        cy.get('.ng-tns-c209-54.status-primary').should('not.exist')
         break;
 
-        case elements.positionInDropdown.topStart:
-          cy.get(elements.toasterConfigurationTypeDropdown.main).click()
-          cy.get(elements.toasterConfigurationTypeDropdown.success).click()
-          cy.get(elements.showToastButton).click()
-          cy.get('.ng-tns-c209-54.status-success')          
+      case elements.positionInDropdown.topStart:
+        cy.get(elements.toasterConfigurationTypeDropdown.main).click()
+        cy.get(elements.toasterConfigurationTypeDropdown.success).click()
+        cy.get(elements.showToastButton).click()
+        cy.get('.ng-tns-c209-54.status-success')
           .should('have.css', 'background-color')
-            .and('eq', expectedResult)
-          break;
+          .and('eq', expectedResult)
+        cy.get('.ng-tns-c209-54.status-success').click('topLeft', { force: true })
+        cy.get('.ng-tns-c209-54.status-success').should('not.exist')
+        break;
 
+      case elements.positionInDropdown.bottomRight:
+        cy.get(elements.toasterConfigurationTypeDropdown.main).click()
+        cy.get(elements.toasterConfigurationTypeDropdown.warning).click()
+        cy.get(elements.showToastButton).click()
+        cy.get('.ng-tns-c209-54.status-warning')
+          .should('have.css', 'background-color')
+          .and('eq', expectedResult)
+        cy.get('.ng-tns-c209-54.status-warning').click('bottomRight', { force: true })
+        cy.get('.ng-tns-c209-54.status-warning').should('not.exist')
+        break;
+
+      case elements.positionInDropdown.topRight:
+        cy.get(elements.toasterConfigurationTypeDropdown.main).click()
+        cy.get(elements.toasterConfigurationTypeDropdown.danger).click()
+        cy.get(elements.showToastButton).click()
+        cy.get('.ng-tns-c209-54.status-danger')
+          .should('have.css', 'background-color')
+          .and('eq', expectedResult)
+        cy.get('.ng-tns-c209-54.status-danger').click('topRight', { force: true })
+        cy.get('.ng-tns-c209-54.status-danger').should('not.exist')
+        break;
       default:
         break;
     }
-
-
   })
 })
-
-/*
-describe('Parametrized tests for toastr', () => {
-  testData.forEach(({ testData, expectedResult }, i) => {
-    it(`The case for filling out the Block form by value`, () => {
-      cy.visit('https://sanitarskyi-ngx-admin.herokuapp.com/')
-      cy.contains('Material Dark').click()
-      cy.get(elements.modalOverlaysDropDown).click()
-      cy.get(elements.optionToastr).click()
-
-      cy.get(elements.toasterConfigurationTitle)
-        .type(testData)
-        .should("contain.value", expectedResult)
-    })
-  }) 
-
-
-  it('', () => {
-    cy.visit('https://sanitarskyi-ngx-admin.herokuapp.com/')
-    cy.contains('Material Dark').click()
-    cy.get(elements.modalOverlaysDropDown)
-    cy.get(elements.optionToastr)
-  })
-})*/
