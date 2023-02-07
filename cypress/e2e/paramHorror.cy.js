@@ -39,12 +39,11 @@ const elements = {
   showToastButton: 'nb-card-footer .status-basic'
 }
 
-const testData = {
-  position: 'top-right',
-  title: 'test title',
-  content: 'test content',
-  time: '1000',
-  type: 'primary'
+const toasts = {
+  bottomStart: '.ng-tns-c209-54.status-primary',
+  topStart: '.ng-tns-c209-54.status-success',
+  bottomRight: '.ng-tns-c209-54.status-warning',
+  topRight: '.ng-tns-c209-54.status-danger'
 }
 
 const testDataArr = [
@@ -62,58 +61,57 @@ beforeEach('', () => {
   cy.get(elements.burgerButton).click()
 })
 
-testDataArr.forEach(({ testData, expectedResult }) => {
-  it(`Param horror and pain`, () => {
+testDataArr.forEach(({ testData, expectedResult }, i) => {
+  it(`Param horror and pain of tost#${i}`, () => {
     cy.get(elements.toasterConfigurationPosition).click()
     cy.get(testData).click()
     cy.get(elements.toasterConfigurationTitle).type(`${testData}`).should('contain.value', `${testData}`)
     cy.get(elements.toasterConfigurationContent).type(`${testData}`).should('contain.value', `${testData}`)
     cy.get(elements.toasterConfigurationtimeout).type(20000).should('contain.value', 2000)
 
-    cy.log(expectedResult)
     switch (testData) {
       case elements.positionInDropdown.bottomStart:
         cy.get(elements.toasterConfigurationTypeDropdown.main).click()
         cy.get(elements.toasterConfigurationTypeDropdown.primary).click()
         cy.get(elements.showToastButton).click()
-        cy.get('.ng-tns-c209-54.status-primary')
+        cy.get(toasts.bottomStart)
           .should('have.css', 'background-color')
           .and('eq', expectedResult)
-        cy.get('.ng-tns-c209-54.status-primary').click('bottomLeft', { force: true })
-        cy.get('.ng-tns-c209-54.status-primary').should('not.exist')
+        cy.get(toasts.bottomStart).click('bottomLeft', { force: true })
+        cy.get(toasts.bottomStart).should('not.exist')
         break;
 
       case elements.positionInDropdown.topStart:
         cy.get(elements.toasterConfigurationTypeDropdown.main).click()
         cy.get(elements.toasterConfigurationTypeDropdown.success).click()
         cy.get(elements.showToastButton).click()
-        cy.get('.ng-tns-c209-54.status-success')
+        cy.get(toasts.topStart)
           .should('have.css', 'background-color')
           .and('eq', expectedResult)
-        cy.get('.ng-tns-c209-54.status-success').click('topLeft', { force: true })
-        cy.get('.ng-tns-c209-54.status-success').should('not.exist')
+        cy.get(toasts.topStart).click('topLeft', { force: true })
+        cy.get(toasts.topStart).should('not.exist')
         break;
 
       case elements.positionInDropdown.bottomRight:
         cy.get(elements.toasterConfigurationTypeDropdown.main).click()
         cy.get(elements.toasterConfigurationTypeDropdown.warning).click()
         cy.get(elements.showToastButton).click()
-        cy.get('.ng-tns-c209-54.status-warning')
+        cy.get(toasts.bottomRight)
           .should('have.css', 'background-color')
           .and('eq', expectedResult)
-        cy.get('.ng-tns-c209-54.status-warning').click('bottomRight', { force: true })
-        cy.get('.ng-tns-c209-54.status-warning').should('not.exist')
+        cy.get(toasts.bottomRight).click('bottomRight', { force: true })
+        cy.get(toasts.bottomRight).should('not.exist')
         break;
 
       case elements.positionInDropdown.topRight:
         cy.get(elements.toasterConfigurationTypeDropdown.main).click()
         cy.get(elements.toasterConfigurationTypeDropdown.danger).click()
         cy.get(elements.showToastButton).click()
-        cy.get('.ng-tns-c209-54.status-danger')
+        cy.get(toasts.topRight)
           .should('have.css', 'background-color')
           .and('eq', expectedResult)
-        cy.get('.ng-tns-c209-54.status-danger').click('topRight', { force: true })
-        cy.get('.ng-tns-c209-54.status-danger').should('not.exist')
+        cy.get(toasts.topRight).click('topRight', { force: true })
+        cy.get(toasts.topRight).should('not.exist')
         break;
       default:
         break;
