@@ -1,5 +1,5 @@
 {
-    "name": "cypress-example-app",
+"name": "cypress-example-app",
     "version": "0.0.0-development",
     "description": "This is an example app used to showcase Cypress.io testing.",
     "main": "index.js",

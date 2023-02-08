@@ -22,7 +22,6 @@ Cypress.Commands.add('inputFiller', (input, value) => {
     .type(value) 
     .should('have.value', value)  
 })
-
 //
 //
 // -- This is a child command --
