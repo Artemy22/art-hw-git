@@ -54,20 +54,19 @@ const testDataArr = [
 ]
 
 beforeEach('', () => {
-  cy.visit('https://sanitarskyi-ngx-admin.herokuapp.com/')
-  cy.contains('Material Dark').click()
+  cy.navigateToDashboard()
   cy.get(elements.modalOverlaysDropDown).click()
-  cy.get(elements.optionToastr).click()
-  cy.get(elements.burgerButton).click()
+    cy.get(elements.optionToastr).click()
+    cy.get(elements.burgerButton).click()
 })
 
 testDataArr.forEach(({ testData, expectedResult }, i) => {
   it(`Param horror and pain of tost#${i}`, () => {
     cy.get(elements.toasterConfigurationPosition).click()
     cy.get(testData).click()
-    cy.get(elements.toasterConfigurationTitle).type(`${testData}`).should('contain.value', `${testData}`)
-    cy.get(elements.toasterConfigurationContent).type(`${testData}`).should('contain.value', `${testData}`)
-    cy.get(elements.toasterConfigurationtimeout).type(20000).should('contain.value', 2000)
+    cy.inputFiller(elements.toasterConfigurationTitle,testData)
+    cy.inputFiller(elements.toasterConfigurationContent, testData)
+    cy.inputFiller(elements.toasterConfigurationtimeout, 20000)
 
     switch (testData) {
       case elements.positionInDropdown.bottomStart:

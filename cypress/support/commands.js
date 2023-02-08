@@ -10,7 +10,19 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
+//Cypress.Commands.add('login', (email, password) => {})
+Cypress.Commands.add('navigateToDashboard', () => {
+    cy.visit('https://sanitarskyi-ngx-admin.herokuapp.com/')
+    cy.contains('Material Dark').click()    
+})
+
+Cypress.Commands.add('inputFiller', (input, value) => {
+    cy.get(input)
+    .clear()
+    .type(value) 
+    .should('have.value', value)  
+})
+
 //
 //
 // -- This is a child command --
